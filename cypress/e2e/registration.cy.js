@@ -16,7 +16,7 @@ describe("Check the [Registration] form match the design", () => {
         cy.get(".modal-body").find("form > div:nth-child(4) > label", "Password").should("have.text", "Password");
         cy.get(".modal-body").find("form > div:nth-child(5) > label", "Re-enter password").should("have.text", "Re-enter password");
     });
-    it.only("Check the label font size and text color match", () => {
+    it("Check the label font size and text color match", () => {
         cy.get(".modal-title").contains("Registration").should("have.css", "font-size", "24px")
             .and("have.css", "color", "rgb(55, 58, 60)");
         cy.get(".modal-body").find("form > div:nth-child(1) > label", "Name").should("have.css", "font-size", "16px")
