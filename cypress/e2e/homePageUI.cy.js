@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import HomePage, { homePage } from "../../pom/pages/HomePage";
+import { homePage } from "../../pom/pages/HomePage";
 
 describe('Check Header navigation', () => {
     beforeEach(() => {
@@ -51,9 +51,8 @@ describe('Check the section - Contacts', () => {
         ];
 
         homePage.socials.each((el, index) => {
-            cy.wrap(el)
-                .should('have.attr', 'href')
-                .and('include', expectedLinks[index]);
+            cy.wrap(el).should('have.attr', 'href')
+                       .and('include', expectedLinks[index]);
         });
     });
 
@@ -62,21 +61,18 @@ describe('Check the section - Contacts', () => {
         homePage.mailLink.should('have.attr', 'href').and('include', 'mailto:developer@ithillel.ua');
     });
 });
+
 describe('Check the footer elements', () => {
     beforeEach(() => {
         cy.visit('/');
     });
 
     it('Check copyright text', () => {
-        homePage
-            .copyright
-            .should('contain.text', '© 2021 Hillel IT school');
+        homePage.copyright.should('contain.text', '© 2021 Hillel IT school');
     });
 
     it('Check site purposes text', () => {
-        homePage
-            .purpose
-            .should('contain.text', 'Hillel auto developed in Hillel IT school for educational purposes of QA courses');
+        homePage.purpose.should('contain.text', 'Hillel auto developed in Hillel IT school for educational purposes of QA courses');
     });
 
     it('Check site logo', () => {
