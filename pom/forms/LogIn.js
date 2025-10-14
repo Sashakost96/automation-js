@@ -32,7 +32,7 @@ class LogInForm extends BaseClassForms {
     }
 
     get passwordInput() {
-        return this.inputField('signinPassword')
+        return this.inputField('signinPassword');
     }
 
     get rememberMe() {
@@ -56,7 +56,7 @@ class LogInForm extends BaseClassForms {
     }
 
     get loginButton() {
-        return this.button('btn.btn-primary')
+        return this.button('btn.btn-primary');
     }
 
     get loginError1() {

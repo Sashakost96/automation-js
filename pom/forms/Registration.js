@@ -1,73 +1,74 @@
-import HomePage, { homePage } from "../../pom/pages/HomePage";
+import { homePage } from "../../pom/pages/HomePage";
+import { BaseClassForms } from "./BaseClassForms";
 
-class RegistrationForm {
+class RegistrationForm extends BaseClassForms{
 
     openRegistrationForm() {
         return homePage.signUpButton.click();
     }
 
-    get form() {
+    get getForm() {
         return cy.get('div.modal-content');
     }
 
     get formTitle() {
-        return this.form.find('.modal-title');
+        return this.title();
     }
 
     get closeButton() {
-        return this.form.contains('button', '×');
+        return this.button('close');
     }
 
     get registerButton() {
-        return this.form.contains('button', 'Register');
+        return this.button('btn.btn-primary');
     }
 
     get nameLabel() {
-        return this.form.contains('label', 'Name');
+        return this.label('signupName');
     }
 
     get nameInput() {
-        return cy.get('#signupName');
+        return this.inputField('signupName');
     }
 
     get lastNameLabel() {
-        return this.form.contains('label', 'Last name');
+        return this.label('signupLastName');
     }
 
     get lastNameInput() {
-        return cy.get('#signupLastName');
+        return this.inputField('signupLastName');
     }
 
     get emailLabel() {
-        return this.form.contains('label', 'Email');
+        return this.label('signupEmail');
     }
 
     get emailInput() {
-        return cy.get('#signupEmail');
+        return this.inputField('signupEmail');
     }
 
     get passwordLabel() {
-        return this.form.contains('label', 'Password');
+        return this.label('signupPassword');
     }
 
     get passwordInput() {
-        return cy.get('#signupPassword');
+        return this.inputField('signupPassword');
     }
 
     get repeatPasswordLabel() {
-        return this.form.contains('label', 'Re-enter password');
+        return this.label('signupRepeatPassword');
     }
 
     get repeatPasswordInput() {
-        return cy.get('#signupRepeatPassword');
+        return this.inputField('signupRepeatPassword');
     }
 
     get RndEmail() {
-        return `test+${Date.now().toString().slice(-4)}@example.com`
+        return `test+${Date.now().toString().slice(-4)}@example.com`;
     }
 
     get userExistsError1() {
-        return cy.get('.alert').contains('User already exists');
+        return this.errorAlert('p.alert.alert-danger').contains('User already exists');
     }
 }
 
