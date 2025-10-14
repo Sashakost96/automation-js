@@ -11,6 +11,7 @@
     "cy:staging": "npm run cy:run -- --config-file cypress.config.staging.js",
     "cy:dev:headed": "cypress run --config-file cypress.config.dev.js --headed --browser chrome",
     "cy:staging:headed": "cypress run --config-file cypress.config.staging.js --headed --browser chrome",
+    "cy:open:dev": "cypress open --config-file cypress.config.dev.js",
     
     "report:merge": "mochawesome-merge cypress/results/json/*.json > cypress/results/mochawesome-report.json",
     "report:generate": "marge cypress/results/mochawesome-report.json -f report -o cypress/results",

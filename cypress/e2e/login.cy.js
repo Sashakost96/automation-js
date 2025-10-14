@@ -80,6 +80,6 @@ describe("Check Sign In logic", () => {
     it("Check closing form functionality", () => {
         loginForm.openSignInForm();
         loginForm.closeButton.click();
-        loginForm.form.should('not.be.visible');
+        loginForm.getForm.should('not.be.visible');
     });
 });

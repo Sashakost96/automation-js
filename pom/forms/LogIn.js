@@ -1,36 +1,38 @@
-import HomePage, { homePage } from "../../pom/pages/HomePage";
+import { homePage } from "../../pom/pages/HomePage";
+import { BaseClassForms } from "./BaseClassForms";
 
-class LogInForm {
+class LogInForm extends BaseClassForms {
+
     openSignInForm() {
         return homePage.signInButton.click();
     }
 
-    get form() {
+    get getForm() {
         return cy.get('div.modal-content');
     }
 
     get formTitle() {
-        return this.form.contains('.modal-title', 'Log in');
+        return this.title();
     }
 
     get closeButton() {
-        return this.form.contains('button', '×');
+        return this.button('close');
     }
 
     get labelEmail() {
-        return this.form.contains('label', 'Email');
+        return this.label('signinEmail');
     }
 
     get emailInput() {
-        return cy.get('#signinEmail');
+        return this.inputField('signinEmail');
     }
 
     get labelPassword() {
-        return this.form.contains('label', 'Password');
+        return this.label('signinPassword');
     }
 
     get passwordInput() {
-        return cy.get('#signinPassword');
+        return this.inputField('signinPassword')
     }
 
     get rememberMe() {
@@ -46,31 +48,31 @@ class LogInForm {
     }
 
     get forgotPassword() {
-        return this.form.contains('button', 'Forgot password');
+        return this.button('btn.btn-link:last-child');
     }
 
     get registrationButton() {
-        return this.form.contains('button', 'Registration');
+        return this.button('btn.btn-link:first-child');
     }
 
     get loginButton() {
-        return this.form.contains('button', 'Login');
+        return this.button('btn.btn-primary')
     }
 
     get loginError1() {
-        return cy.get('p.alert.alert-danger').contains('Wrong email or password');
+        return this.errorAlert('p.alert.alert-danger').contains('Wrong email or password');
     }
 
     get emailError1() {
-        return cy.get('.invalid-feedback > p').contains('Email is incorrect');
+        return this.errorAlert('.invalid-feedback > p').contains('Email is incorrect');
     }
 
     get emailError2() {
-        return cy.get('.invalid-feedback > p').contains('Email required');
+        return this.errorAlert('.invalid-feedback > p').contains('Email required');
     }
 
     get passwordError1() {
-        return cy.get('.invalid-feedback > p').contains('Password required');
+        return this.errorAlert('.invalid-feedback > p').contains('Password required');
     }
 
 }
