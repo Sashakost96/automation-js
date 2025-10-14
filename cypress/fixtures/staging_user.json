@@ -1,0 +1,10 @@
+{
+  "validCredentials": {
+    "email": "sas@gmail.com",
+    "password": "cfif123KO!"
+  },
+  "invalidCredentials": {
+    "email": "fake_user@gmail.com",
+    "password": "wrongPass"
+  }
+}

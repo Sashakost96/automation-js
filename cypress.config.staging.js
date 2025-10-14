@@ -5,12 +5,17 @@ module.exports = defineConfig({
     reporter: "mochawesome",
     reporterOptions: {
       reportDir: "cypress/results/json",
-      html: false,
       overwrite: false,
+      html: false,
       json: true,
-      timestamp: "ddmmyyy_HHMMss",
+      timestamp: "ddmmyyyy_HHMMss",
     },
 
-    setupNodeEvents(on, config) {},
+    baseUrl: "https://guest:welcome2qauto@qauto2.forstudy.space",
+
+    setupNodeEvents(on, config) {
+      config.env.environment = "staging";
+      return config;
+    },
   },
 });

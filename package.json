@@ -4,7 +4,19 @@
   "description": "",
   "main": "cypress.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cy:buggy": "npx cypress open --env configFile=buggy",
+    "clean:reports": "rimraf cypress/results",
+    "cy:run": "cypress run",
+    "cy:run:headed": "cypress run --headed --browser chrome",
+    "cy:dev": "npm run cy:run -- --config-file cypress.config.dev.js",
+    "cy:staging": "npm run cy:run -- --config-file cypress.config.staging.js",
+    "cy:dev:headed": "cypress run --config-file cypress.config.dev.js --headed --browser chrome",
+    "cy:staging:headed": "cypress run --config-file cypress.config.staging.js --headed --browser chrome",
+    "cy:open:dev": "cypress open --config-file cypress.config.dev.js",
+    "report:merge": "mochawesome-merge cypress/results/json/*.json > cypress/results/mochawesome-report.json",
+    "report:generate": "marge cypress/results/mochawesome-report.json -f report -o cypress/results",
+    "test:dev:report": "npm run cy:dev && npm run report:merge && npm run report:generate && npm run clean:json",
+    "test:staging:report": "npm run cy:staging && npm run report:merge && npm run report:generate && npm run clean:json"
   },
   "repository": {
     "type": "git",
@@ -17,5 +29,11 @@
   "bugs": {
     "url": "https://github.com/Sashakost96/automation-js/issues"
   },
-  "homepage": "https://github.com/Sashakost96/automation-js#readme"
+  "homepage": "https://github.com/Sashakost96/automation-js#readme",
+  "devDependencies": {
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.0.0",
+    "mochawesome-report-generator": "^6.3.0",
+    "rimraf": "^6.0.1"
+  }
 }
