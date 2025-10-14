@@ -32,6 +32,7 @@ class LogInForm {
     get passwordInput() {
         return cy.get('#signinPassword');
     }
+
     get rememberMe() {
         return cy.get('.form-check');
     }
@@ -44,7 +45,7 @@ class LogInForm {
         return this.rememberMe.find('input');
     }
 
-    get frorgotPassword() {
+    get forgotPassword() {
         return this.form.contains('button', 'Forgot password');
     }
 
@@ -71,6 +72,6 @@ class LogInForm {
     get passwordError1() {
         return cy.get('.invalid-feedback > p').contains('Password required');
     }
-    
+
 }
 export const loginForm = new LogInForm();

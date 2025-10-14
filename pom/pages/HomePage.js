@@ -61,6 +61,7 @@ export class HomePage {
   get featureText2() {
     return this.paragraphs.contains('Instructions and manuals');
   }
+
   get contactsSection() {
     return cy.get('#contactsSection');
   }

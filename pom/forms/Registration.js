@@ -5,7 +5,7 @@ class RegistrationForm {
     openRegistrationForm() {
         return homePage.signUpButton.click();
     }
- //repeted code
+
     get form() {
         return cy.get('div.modal-content');
     }
@@ -17,6 +17,7 @@ class RegistrationForm {
     get closeButton() {
         return this.form.contains('button', '×');
     }
+
     get registerButton() {
         return this.form.contains('button', 'Register');
     }
@@ -28,13 +29,15 @@ class RegistrationForm {
     get nameInput() {
         return cy.get('#signupName');
     }
-    get lastNameLable() {
+
+    get lastNameLabel() {
         return this.form.contains('label', 'Last name');
     }
 
     get lastNameInput() {
         return cy.get('#signupLastName');
     }
+
     get emailLabel() {
         return this.form.contains('label', 'Email');
     }
@@ -50,7 +53,8 @@ class RegistrationForm {
     get passwordInput() {
         return cy.get('#signupPassword');
     }
-    get repeatPasswordlabel() {
+
+    get repeatPasswordLabel() {
         return this.form.contains('label', 'Re-enter password');
     }
 
@@ -61,7 +65,8 @@ class RegistrationForm {
     get RndEmail() {
         return `test+${Date.now().toString().slice(-4)}@example.com`
     }
-    get userExisitError1() {
+
+    get userExistsError1() {
         return cy.get('.alert').contains('User already exists');
     }
 }

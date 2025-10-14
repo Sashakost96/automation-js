@@ -2,8 +2,6 @@ node_modules
 screenshots
 videos
 .DS_store
-cypress/e2e/1-getting-started/
-cypress/e2e/2-advanced-examples/
-cypress/e2e/2-advanced-examples/
-/cypress/e2e/task2.cy.js
-/cypress/e2e/task1.cy.js
+cypress/results
+cypress/downloads
+.vscode

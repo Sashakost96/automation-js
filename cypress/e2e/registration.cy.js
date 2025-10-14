@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+
 import { registrationForm } from "../../pom/forms/Registration";
 import { homePage } from "../../pom/pages/HomePage";
 let validEmail;

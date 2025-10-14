@@ -1,6 +1,4 @@
 /// <reference types="cypress" />
-//npx cypress open --config-file cypress.config.dev.js 
-//npx cypress open --config-file cypress.config.staging.js 
 
 import { loginForm } from "../../pom/forms/LogIn";
 import { garagePage } from "../../pom/pages/GaragePage";
@@ -33,7 +31,6 @@ describe("Check Sign In logic", () => {
         loginForm.registrationButton.should('be.visible').and('have.text', 'Registration');
         loginForm.closeButton.should('be.visible').and('have.text', '×');
         loginForm.loginButton.should('not.be.enabled').and('have.text', 'Login');
-        //add checks for colors and styles
     });
 
     it("Check Sign In with valid credentials", () => {
