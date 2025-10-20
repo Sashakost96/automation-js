@@ -5,3 +5,5 @@ videos
 cypress/results
 cypress/downloads
 .vscode
+fiveTests.js
+addCarIntercept.js
