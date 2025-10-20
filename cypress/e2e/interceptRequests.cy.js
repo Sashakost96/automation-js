@@ -71,7 +71,7 @@ describe('Intercept tests', () => {
             return Math.floor(Math.random() * max)
         }
         const liters = getRandomInt(90);
-        const totalCost = getRandomInt(10);
+        const totalCost = getRandomInt(90);
 
         const expenseData = {
             'carId': carData.id,
