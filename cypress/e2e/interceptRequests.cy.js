@@ -22,7 +22,7 @@ describe('Intercept tests', () => {
             statusCode: 200,
             body: fakeUser
         }).as('userBody');
-   
+
         cy.get('#userNavDropdown').click();
         cy.get('.dropdown-item.btn.btn-link.user-nav_link').contains('Profile').click();
         cy.get('.profile_name').should('have.text', 'Kotik Kompotik');
@@ -91,11 +91,11 @@ describe('Intercept tests', () => {
             expect(res.id).to.be.a('number', 'Check type of expense ID');
             expect(res.carId).to.eq(carData.id, 'Check car ID match');
             expect(res.mileage).gt(carData.initialMileage, 'Check Mileage value increased')
-            .and.eq(expenseData.mileage, 'Validating Mileage value');
-             expect(res.liters).to.be.a('number', 'Check type of Liters value')
-                 .and.eq(expenseData.liters, 'Validating Liters value');
-             expect(res.totalCost).to.be.a('number', 'Check type of Total Cost value')
-                 .and.eq(expenseData.totalCost, 'Validating Liters value Total Cost value');
+                .and.eq(expenseData.mileage, 'Validating Mileage value');
+            expect(res.liters).to.be.a('number', 'Check type of Liters value')
+                .and.eq(expenseData.liters, 'Validating Liters value');
+            expect(res.totalCost).to.be.a('number', 'Check type of Total Cost value')
+                .and.eq(expenseData.totalCost, 'Validating Liters value Total Cost value');
         });
     });
 });

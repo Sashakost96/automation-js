@@ -23,7 +23,7 @@ Cypress.Commands.add('logInApi', () => {
   const env = Cypress.env('environment') || 'dev';
   const fixtureName = `${env}_user.json`;
   cy.fixture(fixtureName).then((user) => {
-     cy.request({
+    cy.request({
       method: 'POST',
       url: 'api/auth/signin',
       body:
@@ -68,7 +68,7 @@ Cypress.Commands.add('addExpenses v2', (newMileage, liters, cost) => {
 });
 
 Cypress.Commands.add('getCarByID_Api', (id) => {
-   cy.request({
+  cy.request({
     method: 'GET',
     url: `/api/cars/${id}`,
     // headers: {
@@ -79,11 +79,11 @@ Cypress.Commands.add('getCarByID_Api', (id) => {
 
 
 Cypress.Commands.add('addExpensesApi', (expenseData) => {
-   cy.request({
+  cy.request({
     method: 'POST',
     url: '/api/expenses',
     body: expenseData,
-   }).then((response) => {
+  }).then((response) => {
     cy.wrap(response).as('addExpense');
   });
 });

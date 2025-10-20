@@ -9,7 +9,6 @@ beforeEach(function () {
         .then((cookie) => {
             cy.wrap(cookie.value).as('sessionId');
             cy.log(`cookie: ${cookie.value}`);
-            //sid=s%3AcjPi0OnnLzE8N7ItbXjPSJvG-L_u7voR.2f3HEy0UNjGW2PnzmgHvjsVhI2JpOYN8mTr3KnYQzCo    
         });
 });
 
@@ -110,7 +109,7 @@ let carMileageRnd;
 let currentDate;
 let carModelRnd;
 
-it('Creates new car & check it present in car list [POST /cars & GET /api/cars]', function () { // { retries: 5 }
+it('Creates new car & check it present in car list [POST /cars & GET /api/cars]', function () {
     const sessionCookieValue = `sid=${this.sessionId}`;
     carBrandRnd = Math.floor(Math.random() * 5) + 1;
     carMileageRnd = Math.floor(Math.random() * 9998) + 1;
@@ -159,11 +158,15 @@ it('Creates new car & check it present in car list [POST /cars & GET /api/cars]'
         expect(carResponse.body).to.have.property('data');
         expect(carResponse.body.status).to.eq('ok', 'Check the status text is valid');
         expect(response.id).to.be.a('number', 'Created car ID must be a number');
-        expect(response.carBrandId).to.be.a('number', 'Car brand ID must be a number').and.to.be.eq(carData.carBrandId, 'Car brand ID value');
-        expect(response.carModelId).to.be.a('number', 'Car model ID must be a number').and.to.be.eq(carData.carModelId, 'Car model ID value');
-        expect(response.initialMileage).to.be.a('number', 'Car initial mileage must be a number').and.to.be.eq(carData.mileage, 'Car initial mileage value');
+        expect(response.carBrandId).to.be.a('number', 'Car brand ID must be a number')
+            .and.to.be.eq(carData.carBrandId, 'Car brand ID value');
+        expect(response.carModelId).to.be.a('number', 'Car model ID must be a number')
+            .and.to.be.eq(carData.carModelId, 'Car model ID value');
+        expect(response.initialMileage).to.be.a('number', 'Car initial mileage must be a number')
+            .and.to.be.eq(carData.mileage, 'Car initial mileage value');
         expect(response.updatedMileageAt.slice(0, 15)).to.be.eq(currentDate.slice(0, 15), 'Created Date value');
-        expect(response.mileage).to.be.a('number', 'Car mileage must be a number').and.to.be.eq(carData.mileage, 'Car mileage value');
+        expect(response.mileage).to.be.a('number', 'Car mileage must be a number')
+            .and.to.be.eq(carData.mileage, 'Car mileage value');
         expect(response.mileage).to.eq(carResponse.body.data.initialMileage, 'Initial mileage = mileage');
         expect(response.brand).to.be.a('string', 'Checking the brand type');
         expect(response.model).to.be.a('string', 'Checking the model type');
@@ -227,7 +230,7 @@ it('Edits existing car [PUT /cars/{id}]', function () {
     })
 });
 
-it.skip('Deletes existing car [DELETE /cars/{id}]', function () {
+it('Deletes existing car [DELETE /cars/{id}]', function () {
     const sessionCookieValue = `sid=${this.sessionId}`;
 
     cy.request({
@@ -246,7 +249,7 @@ it.skip('Deletes existing car [DELETE /cars/{id}]', function () {
     });
 });
 
-it.only('Deletes all existing cars [GET & DELETE]', function () {
+it('Deletes all existing cars [GET & DELETE]', function () {
     const sessionCookieValue = `sid=${this.sessionId}`;
 
     cy.request({
@@ -285,5 +288,3 @@ it.only('Deletes all existing cars [GET & DELETE]', function () {
         });
     });
 });
-
-//});
