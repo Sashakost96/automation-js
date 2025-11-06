@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "jest": {
+  "setupFilesAfterEnv": ["jest-extended/all"]
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Sashakost96/automation-js.git"
@@ -17,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/Sashakost96/automation-js/issues"
   },
-  "homepage": "https://github.com/Sashakost96/automation-js#readme"
+  "homepage": "https://github.com/Sashakost96/automation-js#readme",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "fs": "^0.0.1-security",
+    "jest": "^30.2.0"
+  },
+  "devDependencies": {
+    "jest-extended": "^6.0.0"
+  }
 }
